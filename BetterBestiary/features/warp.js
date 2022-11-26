@@ -1,3 +1,4 @@
+import Settings from "../settings";
 import { PREFIX } from "../utils/utils";
 
 let warpEnabled = false

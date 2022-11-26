@@ -4,37 +4,12 @@ import { PREFIX } from "../utils/utils";
 register("chat", (e) => {
     cancel(e)
 }).setCriteria("[BOSS] ${*}")
-
 //// Precursor Eye Messages ////
 register("chat", (e) => {
     var formattedMessage = ChatLib.getChatMessage(e, true);
         if(formattedMessage.includes("Eye Beam"))
         {cancel(e)}
 })
-
-////  Arachne Chat ////
-register("chat", (e) => {
-    var formattedMessage = ChatLib.getChatMessage(e, true);
-        if (formattedMessage.includes("[BOSS] Arachne&r&f: So it is time")) {
-            ChatLib.chat("&c&lArachne is nearby!")
-            Client.showTitle("&c&lArachne!", "", 0, 50, 0);
-            {cancel(e)}}
-        if(formattedMessage.includes("ARACHNE DOWN!"))
-            {cancel(e)}
-        // if(formattedMessage.includes("Eye Beam"))
-        //     {cancel(e)}
-        if(formattedMessage.includes("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"))
-            {cancel(e)}
-        if(formattedMessage.includes("3rd Damager"))
-            {cancel(e)}
-        if(formattedMessage.includes("2nd Damager"))
-            {cancel(e)}
-        if(formattedMessage.includes("1st Damager"))
-            {cancel(e)}
-        if(formattedMessage.includes("dealt the final blow"))
-            {cancel(e)}
-}) 
-
 //// Horseman Chat ////
 register("chat", (e) => {
     var formattedMessage = ChatLib.getChatMessage(e, true);
@@ -50,11 +25,11 @@ register("chat", (e) => {
             {cancel(e)}
         if(formattedMessage.includes("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"))
             {cancel(e)}
-        if(formattedMessage.includes("3rd Damager"))
+        if(formattedMessage.includes("3rd Damager ${*}"))
             {cancel(e)}
-        if(formattedMessage.includes("2nd Damager"))
+        if(formattedMessage.includes("2nd Damager ${*}"))
             {cancel(e)}
-        if(formattedMessage.includes("1st Damager"))
+        if(formattedMessage.includes("1st Damager ${*}"))
             {cancel(e)}
         if(formattedMessage.includes("dealt the final blow"))
             {cancel(e)}

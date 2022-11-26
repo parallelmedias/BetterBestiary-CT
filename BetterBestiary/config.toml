@@ -1,0 +1,20 @@
+
+[general]
+
+	[general.features]
+		bestiary_tag = false
+
+[bestiary]
+
+	[bestiary.alerts]
+		headless_horsemen_alerts = true
+		zombie_villager_alerts = true
+
+	[bestiary.general]
+		hitbox_toggle = true
+
+	[bestiary.spider]
+		arachne_alerts = false
+		keeper_waypoint = false
+		keeper_waypoints = false
+
