@@ -1,8 +1,6 @@
 import axios from "../../axios"
-import constants from "./constants"
+import { PREFIX, version } from "../utils/constants"
 
-const PREFIX = constants.PREFIX,
-    VERSION = constants.VERSION
 
 register("worldLoad", () => {
     axios.get(`https://chattriggers.com/api/modules/1393`)

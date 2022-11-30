@@ -30,22 +30,6 @@ class Settings {
         java.awt.Desktop.getDesktop().browse(new java.net.URI("https://discord.gg/YXjWcMkCMV"))
     }
 
-    // @SwitchProperty({
-    //     name: 'Bestiary Tag',
-    //     description: 'Shows your bestiary rank in chat',
-    //     category: 'General',
-    //     subcategory: 'Features',
-    // })
-    // bestiaryRankInChat = false;
-
-    // @SwitchProperty({
-    //     name: 'Avoid People',
-    //     description: 'Adds a command to avoid people',
-    //     category: 'General',
-    //     subcategory: 'Features',
-    // })
-    // avoidToggle = false;
-
 //////////////////////////////////////
 /// Bestiary
 //////////////////////////////////////
@@ -61,7 +45,7 @@ class Settings {
 
     @SwitchProperty({
         name: 'Headless Horsemen Alerts',
-        description: 'Headless Horsemen Spawn Timing Alers',
+        description: 'Headless Horsemen Spawn Timing Alerts',
         category: 'Bestiary',
         subcategory: 'Alerts',
     })
@@ -85,13 +69,13 @@ class Settings {
     })
     arachneChat = false;
 
-    @SwitchProperty({
-        name: 'Keeper Waypoints',
-        description: 'Draws waypoints at Keeper spawns',
-        category: 'Bestiary',
-        subcategory: 'Spider',
-    })
-    keeperWaypoint = true;
+    // @SwitchProperty({
+    //     name: 'Keeper Waypoints - Disabled ATM',
+    //     description: 'Draws waypoints at Keeper spawns',
+    //     category: 'Bestiary',
+    //     subcategory: 'Spider',
+    // })
+    // keeperWaypoint = true;
 
 }
 

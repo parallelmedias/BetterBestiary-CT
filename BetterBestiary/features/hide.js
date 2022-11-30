@@ -1,4 +1,4 @@
-import { PREFIX } from "../utils/utils";
+import { PREFIX } from "../utils/constants"
 
 let hidePlayers = false
 let user = Player.getName()

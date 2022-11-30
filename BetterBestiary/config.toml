@@ -11,10 +11,11 @@
 		zombie_villager_alerts = true
 
 	[bestiary.general]
-		hitbox_toggle = true
+		hitbox_toggle = false
 
 	[bestiary.spider]
-		arachne_alerts = false
+		arachne_alerts = true
+		keeper_waypoints_-_disabled_atm = true
 		keeper_waypoint = false
 		keeper_waypoints = false
 

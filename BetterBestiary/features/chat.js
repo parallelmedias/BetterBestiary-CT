@@ -1,4 +1,4 @@
-import { PREFIX } from "../utils/utils";
+import { PREFIX } from "../utils/constants"
 
 //// Remove Boss Messages ////
 register("chat", (e) => {
@@ -22,16 +22,6 @@ register("chat", (e) => {
             Client.showTitle("&c&lHorseman!", "Graveyard", 0, 50, 0);
             {cancel(e)}}
         if(formattedMessage.includes("HORSEMAN HORSE DOWN!"))
-            {cancel(e)}
-        if(formattedMessage.includes("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬"))
-            {cancel(e)}
-        if(formattedMessage.includes("3rd Damager ${*}"))
-            {cancel(e)}
-        if(formattedMessage.includes("2nd Damager ${*}"))
-            {cancel(e)}
-        if(formattedMessage.includes("1st Damager ${*}"))
-            {cancel(e)}
-        if(formattedMessage.includes("dealt the final blow"))
             {cancel(e)}
         if(formattedMessage.includes("DEBUFF! &fYou were splashed by &cBat"))
             {cancel(e)}

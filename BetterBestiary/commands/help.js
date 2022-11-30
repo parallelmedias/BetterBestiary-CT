@@ -1,14 +1,19 @@
-import constants from "../utils/constants";
-const PREFIX = constants.PREFIX;
+import { PREFIX, SYMBOL} from "../utils/constants"
 
 export function help() {
-    ChatLib.chat("")
-    ChatLib.chat(PREFIX + "&aCommands:")
-    ChatLib.chat(PREFIX + "&a/bb &7- &fOpens the Better Bestiary GUI")
-    ChatLib.chat(PREFIX + "&a/bb help &7- &fShows this menu")
-    ChatLib.chat(PREFIX + "&a/hp &7- &fHides/ shows players")
-    ChatLib.chat(PREFIX + "&a/warping &7- &fEnables party to warp themselves with !warp")
-    // ChatLib.chat(PREFIX + "&a/bb warp (on/off)&7- &fEnables automatic party warping from !warp")
-    // ChatLib.chat(PREFIX + "&a/bb avoid (on/off)&7- &fEnables automatic party warping from !warp")
-    ChatLib.chat("")
+    ChatLib.chat(`&6--------------${PREFIX}--------------`)
+    helpCommand("", "Opens the Better Bestiary GUI", "")
+    helpCommand("help", "This menu.", "")
+    helpCommand("info", "Gives you module information.", "")
+    helpCommand("setkey", "Sets API key (can also use /api new)", "(key)")
+    ChatLib.chat(ChatLib.getCenteredText("&6&lCommands"))
+    helpCommand("warping", "Enables or disables warping party with !warp", "[toggle]")
+    helpCommand("hp", "Hides players in your lobby.", "[toggle]")
+    ChatLib.chat(ChatLib.getCenteredText("&6&lMiscellaneous"))
+    helpCommand("avoid", "Avoids certain players.", "(ign)")
+    ChatLib.chat("&6------------------------------------------")
+}
+// Thanks Stylla and NinJune
+function helpCommand(command, desc, usage) {
+    ChatLib.chat(new TextComponent(`&c${SYMBOL} &6/bb ${command} => &b${desc}`).setHoverValue(`${"/bb " + command + " " + usage}`))
 }
