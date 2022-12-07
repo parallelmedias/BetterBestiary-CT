@@ -39,7 +39,7 @@ register("renderWorld", (partialTicks) => {
             };
             ///////////////////////// Rain Slime /////////////////////////
             if (entity.getClassName() === "EntityArmorStand") {
-                ["Rain Slime"].forEach(rarity => {
+                ["Sneaky Creeper"].forEach(rarity => {
                     if (entity.getName().toLowerCase().includes(rarity)) {
                         drawBox(entity, 255, 0, 0, 50.0, 5, 5, partialTicks);
                     };
@@ -55,29 +55,9 @@ register("renderWorld", (partialTicks) => {
                 });
                 []
             };
-            ///////////////////////// Arachne's Keeper /////////////////////////
-            if (Scoreboard.getLines().some(e => e.toString().includes("Spider's") || e.toString().includes("Arac") || e.toString().includes("Spider"))) {
-                if (entity.getClassName() === "EntityArmorStand") {
-                    ["Keeper"].forEach(rarity => {
-                        if (entity.getName().toLowerCase().includes(rarity)) {
-                            drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                        };
-                    });
-                    []
-                };
-            };
-            ///////////////////////// BroodMother /////////////////////////
-            if (Scoreboard.getLines().some(e => e.toString().includes("Spider's"))) {
-                if (entity.getClassName() === "EntityArmorStand") {
-                    ["BroodMother"].forEach(rarity => {
-                        if (entity.getName().toLowerCase().includes(rarity)) {
-                            Client.showTitle("&6&lBrood Mother!", PREFIX, 0, 50, 0);
-                            drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                        };
-                    });
-                    []
-                };
-            }
+            // if (entity.getClassName() === "EntityCreeper") {
+            //     drawBox(entity, 255, 0, 0, 50.0, 1, 2, partialTicks);
+            // };
         });
     }
 });

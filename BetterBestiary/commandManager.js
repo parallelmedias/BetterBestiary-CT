@@ -20,7 +20,7 @@ register("command", (...args) => {
             warping()
             break
         case "bestiary":
-            getBestiaryTier(args[1])
+            getBestiaryTier()
             break
         default:
             settings.openGUI();

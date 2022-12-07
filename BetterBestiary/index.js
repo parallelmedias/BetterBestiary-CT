@@ -7,6 +7,7 @@ import "./features/zombieVillager"
 import "./features/headlessHorsemen"
 import "./commandManager"
 import { PREFIX, data, version } from "./utils/constants"
+import { getBestiaryTier } from "./utils/getBestiaryTier"
 import axios from "../axios"
 
 register("step", () => {
@@ -32,4 +33,10 @@ register("step", () => {
                 data.save()
             }
         })
+}).setFps(1)
+
+register("step", () => {
+    if (data.bestiaryTier == undefined || data.bestiaryTier == 0) {
+        getBestiaryTier()
+    }
 }).setFps(1)

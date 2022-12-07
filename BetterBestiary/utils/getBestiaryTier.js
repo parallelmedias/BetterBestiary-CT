@@ -7,16 +7,23 @@ let bestiaryData={
     private:[10,15,75,150,250]};
 
 
-export function getBestiaryTier(family){
-    axios.get(`https://api.hypixel.net/skyblock/profiles?key=${data.api_key}&uuid=${data.uuid}`)
-        .then(res => {
-            for(let i=0; i < res.data.profiles.length; i+=1) 
-                {
-                    if(res.data.profiles[i].selected == true) 
-                        profileData = res.data.profiles[i]
-                }
-            let bestiary = profileData.members[data.uuid].stats
-            print(bestiary)
+username = Player.getName()
+//this is the function that gets the bestiary tier
+export function getBestiaryTier() {
+    axios.get(`https://sky.shiiyu.moe/api/v2/profile/${username}`)
+        .then((response) => {
+            let tier = 0
+            // from response get the bestiary level
+            let bestiaryLevel = response.data.profiles[`9421eadfd23444ad9de4e275b2307431`].data.bestiary.level
+            tier += bestiaryLevel
+            data.bestiaryTier = tier
+            data.save()
+        })
+        .catch((error) => {
+            ChatLib.chat("&cError: &7" + error)
         })
 }
 
+register("renderOverlay", () => {
+    Renderer.drawStringWithShadow(`&6Bestiary Tier: ${data.bestiaryTier}`, 60, 60)
+})
