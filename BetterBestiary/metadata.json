@@ -3,6 +3,6 @@
   "description": "https://discord.gg/YXjWcMkCMV" ,
   "author": "Lakia",
   "entry": "index.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "requires": ["axios", "PogData"]
 }
