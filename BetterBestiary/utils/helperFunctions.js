@@ -7,7 +7,6 @@ export function getApiKey() {
 
 export function getCurrentProfile() {
     // Get current profile
-    // axios.get(`https://api.hypixel.net/skyblock/profiles?key=${getApiKey()}&uuid=${Player.getUUID()}`)
     axios.get(`https://sky.shiiyu.moe/api/v2/profile/${username}`)
         .then(res => {
             let profiles = res.data.profiles;
