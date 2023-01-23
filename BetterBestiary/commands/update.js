@@ -1,6 +1,12 @@
-import axios from "../../axios"
-import { PREFIX, version } from "../utils/constants"
+import constants from "../utils/constants"
+import axios from "axios"
+const VERSION = constants.version
+const PREFIX = constants.PREFIX
 
+export function update()
+{
+    ChatLib.chat("&cThis command is currently disabled")
+}
 
 register("worldLoad", () => {
     axios.get(`https://chattriggers.com/api/modules/1393`)
@@ -29,5 +35,3 @@ register("worldLoad", () => {
     })
     
 })
-
-export default ""

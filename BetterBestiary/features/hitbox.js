@@ -1,5 +1,5 @@
 import settings from "../settings";
-import { PREFIX, drawBox} from "../utils/constants"
+import constants from "../utils/constants";
 
 register("renderWorld", (partialTicks) => {
 

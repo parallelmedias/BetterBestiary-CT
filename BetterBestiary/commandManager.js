@@ -1,17 +1,17 @@
+import Settings from "./settings";
+import { fetchDiscord } from "./commands/fetchDiscord";
 import { help } from "./commands/help";
+import { setkey } from "./commands/setkey";
+import { update } from "./commands/update";
 import { warping } from "./commands/warping";
-import { setkey } from "./utils/apiNew";
-import { getBestiaryTier } from "./utils/getBestiaryTier";
-import settings from "./settings";
+import { hidePlayers } from "./features/hidePlayers"; 
 
 register("command", (...args) => {
-    if (args[0] == undefined) {
-        settings.openGUI();
-        return
-    }
-    switch (args[0].toLowerCase()) {
+    if (args[0] == undefined) {Settings.openGUI(); return}
+    switch(args[0].toString().toLowerCase())
+    {
         case "setkey":
-            setkey(args)
+            setkey(args[1])
             break
         case "help":
             help()
@@ -19,11 +19,21 @@ register("command", (...args) => {
         case "warping":
             warping()
             break
-        case "bestiary":
-            getBestiaryTier()
+        case "hideplayers":
+            hidePlayers()
+            break
+        case "discord":
+            fetchDiscord(args)
+            break
+        case "update":
+            // This should update mod from most recent release through chattriggers
+            update()
+            break
+        case "settings":
+            Settings.openGUI()
             break
         default:
-            settings.openGUI();
+            Settings.openGUI()
     }
 }).setTabCompletions((args) => {
     let output = [],

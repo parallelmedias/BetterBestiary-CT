@@ -1,19 +1,28 @@
-import { PREFIX, SYMBOL} from "../utils/constants"
+const PREFIX = "☭"
 
-export function help() {
-    ChatLib.chat(`&6--------------${PREFIX}--------------`)
-    helpCommand("", "Opens the Better Bestiary GUI", "")
+export function help()
+{
+    ChatLib.chat("&b--------------[ &a&lBBReloaded &b]--------------")
+    ChatLib.chat("&7(Hover over command to see usage.)")
+    ChatLib.chat(ChatLib.getCenteredText("&a&lInfo"))
+    helpCommand("", "Gets Bestiary of specified user", "(username)")
     helpCommand("help", "This menu.", "")
-    helpCommand("info", "Gives you module information.", "")
+    helpCommand("update", "Updates the mod.", "")
+    ChatLib.chat(ChatLib.getCenteredText("&a&lSettings"))
+    helpCommand("settings", "Opens settings.", "")
     helpCommand("setkey", "Sets API key (can also use /api new)", "(key)")
-    ChatLib.chat(ChatLib.getCenteredText("&6&lCommands"))
-    helpCommand("warping", "Enables or disables warping party with !warp", "[toggle]")
-    helpCommand("hp", "Hides players in your lobby.", "[toggle]")
-    ChatLib.chat(ChatLib.getCenteredText("&6&lMiscellaneous"))
-    helpCommand("avoid", "Avoids certain players.", "(ign)")
-    ChatLib.chat("&6------------------------------------------")
+    helpCommand("reload", "Reloads the gui.", "")
+    helpCommand("track", "Sets tracked mob for bestiary tracker.", "(mob)")
+    ChatLib.chat(ChatLib.getCenteredText("&a&lWaypoints"))
+    helpCommand("coords", "Opens coords gui.", "")
+    helpCommand("keepers", "Sets up waypoints for arachne keepers.", "[toggle]")
+    helpCommand("slimes", "Sets up waypoints for Rain Slimes", "[toggle]")
+    ChatLib.chat(ChatLib.getCenteredText("&a&lMiscellaneous"))
+    ChatLib.chat(`&a${PREFIX} /fetchdiscord (username) => &bGets discord of username (if linked)`)
+    ChatLib.chat("&b--------------------------------------------")
 }
-// Thanks Stylla and NinJune
-function helpCommand(command, desc, usage) {
-    ChatLib.chat(new TextComponent(`&c${SYMBOL} &6/bb ${command} => &b${desc}`).setHoverValue(`${"/bb " + command + " " + usage}`))
+
+export function helpCommand(command, desc, usage)
+{  
+    ChatLib.chat(new TextComponent(`&a${PREFIX} /bbr ${command} => &b${desc}`).setHoverValue(`${"/bbr " + command + " " + usage}`))
 }

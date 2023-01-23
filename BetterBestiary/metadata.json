@@ -1,8 +1,8 @@
 {
-  "name": "BetterBestiary",
-  "description": "https://discord.gg/YXjWcMkCMV" ,
-  "author": "Lakia",
-  "entry": "index.js",
-  "version": "0.1.3",
-  "requires": ["axios", "PogData"]
+    "name": "BetterBestiary",
+    "description": "https://discord.gg/YXjWcMkCMV" ,
+    "author": "Lakia",
+    "entry": "index.js",
+    "version": "0.2.1",
+    "requires": ["axios", "PogData", "Vigilance"]
 }

@@ -1,5 +1,2 @@
-//create a gitignore rule to ignore the bb_data.json file and the config.toml file
-
-//create a gitignore rule to ignore the bb_data.json file and the config.toml file
-./bb_data.json
-./config.toml
+/data
+config.toml

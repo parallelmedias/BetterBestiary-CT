@@ -1,4 +1,5 @@
-import { PREFIX } from "../utils/constants"
+import constants from "../utils/constants";
+const PREFIX = constants.PREFIX;
 import settings from "../settings";
 
 register("step", () => {
