@@ -1,4 +1,4 @@
-# BetterBestiary
+# BetterBestiary CT
 ChatTrigger Module to help make bestiary grinding better and more enjoyable!
 
 # Installation
