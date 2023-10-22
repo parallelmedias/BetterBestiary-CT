@@ -1,8 +1,15 @@
 {
-    "name": "BetterBestiary",
-    "description": "https://discord.gg/YXjWcMkCMV" ,
-    "author": "Lakia",
-    "entry": "index.js",
-    "version": "0.2.1",
-    "requires": ["axios", "PogData", "Vigilance"]
+  "name": "Better Bestiary",
+  "creator": "Lakia",
+  "description": "",
+  "version": "0.0.1",
+  "entry": "index.js",
+  "requires": [
+    "RenderLib",
+    "requestV2",
+    "PromiseV2",
+    "Vigilance",
+    "sleep",
+    "PogData"
+  ]
 }

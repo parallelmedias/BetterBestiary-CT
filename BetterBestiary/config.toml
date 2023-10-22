@@ -1,0 +1,60 @@
+
+[general]
+
+	[general.general]
+		nick_hider = ""
+
+	[general.hitboxes]
+		hitbox_master_toggle = true
+
+[hub]
+
+	[hub.alerts]
+		headless_horsemen_alerts = true
+		zombie_villager_alerts = true
+
+[dungeons]
+
+	[dungeons.dungeons]
+		star_mob_esp = false
+
+[crimson_isle]
+
+	[crimson_isle.alerts]
+		vanquisher_alerts = true
+
+["spider's_den"]
+
+	["spider's_den".alerts]
+		arachne_alerts = true
+
+[mining_islands]
+
+	[mining_islands.alerts]
+		powder_ghast_alerts = true
+		golden_goblin_alerts = true
+
+	[mining_islands.deep_caverns]
+		miner_zombie_hitbox = false
+		emerald_slime_hitbox = false
+		miner_skeleton_hitbox = false
+		redstone_pigman_hitbox = false
+		lapis_zombie_hitbox = false
+
+	[mining_islands.hitboxes]
+		powder_ghast_hitbox = true
+		golden_goblin_hitbox = true
+		deep_caverns_hitbox = true
+
+	[mining_islands.dwarven_mines]
+		powder_ghast_hitbox = true
+		golden_goblin_hitbox = true
+		powder_ghast_alerts = true
+		golden_goblin_alerts = true
+
+[misc]
+
+	[misc.nick_hider]
+		nick_hider = "Lakia"
+		nick_hider_toggle = true
+
