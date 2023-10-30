@@ -97,6 +97,59 @@ class Settings {
     zombieVillagerAlerts = false;
 
     @SwitchProperty({
+        name: "Zombie Villager Hitbox",
+        description: "Draws a box around the zombie villager",
+        category: "Hub",
+        subcategory: "Hitboxes"
+    })
+    zombieVillagerHitboxes = false;
+
+    @SwitchProperty({
+        name: "Graveyard Zombie Hitbox",
+        description: "Draws a box around the graveyard zombie",
+        category: "Hub",
+        subcategory: "Hitboxes"
+    })
+    graveyardZombieHitboxes = false;
+    
+    // Spider's Den
+    // Broodmother Hitbox
+    @SwitchProperty({
+        name: "Broodmother Hitbox",
+        description: "Draws a box around the broodmother",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    broodmotherHitbox = false;
+
+    // Gravel Skeleton Hitbox
+    @SwitchProperty({
+        name: "Gravel Skeleton Hitbox",
+        description: "Draws a box around the gravel skeleton",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    gravelSkeletonHitbox = false;
+
+    // Silverfish Hitbox
+    @SwitchProperty({
+        name: "Silverfish Hitbox",
+        description: "Draws a box around the silverfish",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    silverfishHitbox = false;
+
+    // Broodmother Hitbox
+    @SwitchProperty({
+        name: "Broodmother Hitbox",
+        description: "Draws a box around the broodmother",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    broodmotherHitbox = false;
+    
+    @SwitchProperty({
         name: "Arachne Alerts",
         description: "Alerts you when Arachne spawns",
         category: "Spider's Den",
