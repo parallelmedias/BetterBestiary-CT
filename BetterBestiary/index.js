@@ -16,12 +16,16 @@ import "./features/misc/farmingAngle"
 
 // Mobs
 import "./features/mobs/deepCaverns"
-import "./features/mobs/hubMobs"
+import "./features/mobs/Hub"
 import "./features/mobs/Vanquisher"
 import "./features/mobs/headlessHorsemen"
 import "./features/mobs/dwarvenMines"
 
 // Spiders Den
+import "./features/mobs/spidersDen/hitboxes"
+import "./features/mobs/spidersDen/alerts"
+import "./features/mobs/spidersDen/timers"
+import "./features/mobs/spidersDen/waypoints"
 
 register("command", () => config.openGUI()).setName("bb")
 

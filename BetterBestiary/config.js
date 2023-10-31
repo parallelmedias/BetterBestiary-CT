@@ -33,6 +33,7 @@ class Settings {
         // main feature to the right and hidden feature to the left
         //this.addDependency("Move Timer", "Ragnarok Axe Cooldown Timer")
     }
+
     // General
     @ButtonProperty({
         name: "Discord Server",
@@ -45,22 +46,22 @@ class Settings {
         java.awt.Desktop.getDesktop().browse(new java.net.URI(""))
     }
 
-    //Nick Hider Toggle
-    @SwitchProperty({
-        name: "Nick Hider Toggle",
-        description: "Hides your name in chat",
-        category: "Misc",
-        subcategory: "Nick Hider"
-    })
-    nickHiderToggle = false;
-    //Nick Hider
-    @TextProperty({
-        name: "Nick Hider",
-        description: "Changes your name to a random name",
-        category: "Misc",
-        subcategory: "Nick Hider"
-    })
-    nickHider = "";
+        //Nick Hider Toggle
+        @SwitchProperty({
+            name: "Nick Hider Toggle",
+            description: "Hides your name in chat",
+            category: "Misc",
+            subcategory: "Nick Hider"
+        })
+        nickHiderToggle = false;
+        //Nick Hider
+        @TextProperty({
+            name: "Nick Hider",
+            description: "Changes your name to a random name",
+            category: "Misc",
+            subcategory: "Nick Hider"
+        })
+        nickHider = "";
     
     // Mobs
     @SwitchProperty({
@@ -71,14 +72,14 @@ class Settings {
     })
     headlessHorsemenAlerts = false;
 
-    //Hitbox Master Toggle
-    @SwitchProperty({
-        name: "Hitbox Master Toggle",
-        description: "Master toggle for all hitboxes",
-        category: "General",
-        subcategory: "Hitboxes"
-    })
-    hitboxMasterToggle = false;
+        //Hitbox Master Toggle
+        @SwitchProperty({
+            name: "Hitbox Master Toggle",
+            description: "Master toggle for all hitboxes",
+            category: "General",
+            subcategory: "Hitboxes"
+        })
+        hitboxMasterToggle = false;
 
     @SwitchProperty({
         name: "Vanquisher Alerts",
@@ -88,100 +89,162 @@ class Settings {
     })
     vanquisherAlerts = false;
 
-    @SwitchProperty({
-        name: "Zombie Villager Alerts",
-        description: "Alerts you when the zombie villager spawns",
-        category: "Hub",
-        subcategory: "Alerts"
-    })
-    zombieVillagerAlerts = false;
+//Hub
+    //Alerts
+        //Zombie Villager Alerts    
+        @SwitchProperty({
+            name: "Zombie Villager Alerts",
+            description: "Alerts you when the zombie villager spawns",
+            category: "Hub",
+            subcategory: "Alerts"
+        })
+        zombieVillagerAlerts = false;
+    //Hitboxes
+        // Zombie Villager Hitboxes
+        @SwitchProperty({
+            name: "",
+            description: "",
+            category: "",
+            subcategory: ""
+        })
+        zombieVillagerHitboxes = false;
+        // Crypt Ghoul Hitboxes
+        @SwitchProperty({
+            name: "",
+            description: "",
+            category: "",
+            subcategory: ""
+        })
+        cryptGhoulHitboxes = false;
+        // Golden Ghoul Hitboxes
+        @SwitchProperty({
+            name: "",
+            description: "",
+            category: "",
+            subcategory: ""
+        })
+        goldenGhoulHitboxes = false;
+        // Wolf Hitboxes
+        @SwitchProperty({
+            name: "",
+            description: "",
+            category: "",
+            subcategory: ""
+        })
+        hubWolfHitboxes = false;
+        // Old Wolf Hitboxes
+        @SwitchProperty({
+            name: "",
+            description: "",
+            category: "",
+            subcategory: ""
+        })
+        oldWolfHitboxes = false;
 
-    @SwitchProperty({
-        name: "Arachne Alerts",
-        description: "Alerts you when Arachne spawns",
-        category: "Spider's Den",
-        subcategory: "Alerts"
-    })
-    arachneAlerts = false;
+// Dwarven Mines
+    //Alerts
+        // Powder Ghast Alert
+        @SwitchProperty({
+            name: "Powder Ghast Alerts",
+            description: "Alerts you when the powder ghast spawns",
+            category: "Mining Islands",
+            subcategory: "Dwarven Mines"
+        })
+        powderGhastAlerts = false;
+        // Golden Goblin Alert
+        @SwitchProperty({
+            name: "Golden Goblin Alerts",
+            description: "Alerts you when the golden goblin spawns",
+            category: "Mining Islands",
+            subcategory: "Dwarven Mines"
+        })
+        goldenGoblinAlerts = false;
+    //Hitboxes
+        // Golden Goblin Hitbox
+        @SwitchProperty({
+            name: "Golden Goblin Hitbox",
+            description: "Draws a box around the golden goblin",
+            category: "Mining Islands",
+            subcategory: "Dwarven Mines"
+        })
+        goldenGoblinHitboxes = false;
+        // Powder Ghast Hitbox
+        @SwitchProperty({
+            name: "Powder Ghast Hitbox",
+            description: "Draws a box around the powder ghast",
+            category: "Mining Islands",
+            subcategory: "Dwarven Mines"
+        })
+        powderGhastHitboxes = false;
 
-    // Dwarven Mines
-    // Powder Ghast Alert
-    @SwitchProperty({
-        name: "Powder Ghast Alerts",
-        description: "Alerts you when the powder ghast spawns",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
-    })
-    powderGhastAlerts = false;
-
-    // Powder Ghast Hitbox
-    @SwitchProperty({
-        name: "Powder Ghast Hitbox",
-        description: "Draws a box around the powder ghast",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
-    })
-    powderGhastHitbox = false;
-    // Golden Goblin Alert
-    @SwitchProperty({
-        name: "Golden Goblin Alerts",
-        description: "Alerts you when the golden goblin spawns",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
-    })
-    goldenGoblinAlerts = false;
-    // Golden Goblin Hitbox
-    @SwitchProperty({
-        name: "Golden Goblin Hitbox",
-        description: "Draws a box around the golden goblin",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
-    })
-    goldenGoblinHitbox = false;
-
-
-    // Deep Caverns
-    // Lapis Zombie Hitbox
-    @SwitchProperty({
-        name: "Lapis Zombie Hitbox",
-        description: "Draws a box around the lapis zombie",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    lapisZombieHitbox = false;
-    // Redstone Pigman Hitbox
-    @SwitchProperty({
-        name: "Redstone Pigman Hitbox",
-        description: "Draws a box around the redstone pigman",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    redstonePigmanHitbox = false;
-    // Emerald Slime Hitbox
-    @SwitchProperty({
-        name: "Emerald Slime Hitbox",
-        description: "Draws a box around the emerald slime",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    emeraldSlimeHitbox = false;
-    // Miner Zombie Hitbox
-    @SwitchProperty({
-        name: "Miner Zombie Hitbox",
-        description: "Draws a box around the miner zombie",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    minerZombieHitbox = false;
-    // Miner Skeleton Hitbox
-    @SwitchProperty({
-        name: "Miner Skeleton Hitbox",
-        description: "Draws a box around the miner skeleton",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    minerSkeletonHitbox = false;
+// Deep Caverns
+        // Lapis Zombie Hitbox
+        @SwitchProperty({
+            name: "Lapis Zombie Hitbox",
+            description: "Draws a box around the lapis zombie",
+            category: "Mining Islands",
+            subcategory: "Deep Caverns"
+        })
+        lapisZombieHitbox = false;
+        // Redstone Pigman Hitbox
+        @SwitchProperty({
+            name: "Redstone Pigman Hitbox",
+            description: "Draws a box around the redstone pigman",
+            category: "Mining Islands",
+            subcategory: "Deep Caverns"
+        })
+        redstonePigmanHitbox = false;
+        // Emerald Slime Hitbox
+        @SwitchProperty({
+            name: "Emerald Slime Hitbox",
+            description: "Draws a box around the emerald slime",
+            category: "Mining Islands",
+            subcategory: "Deep Caverns"
+        })
+        emeraldSlimeHitbox = false;
+        // Miner Zombie Hitbox
+        @SwitchProperty({
+            name: "Miner Zombie Hitbox",
+            description: "Draws a box around the miner zombie",
+            category: "Mining Islands",
+            subcategory: "Deep Caverns"
+        })
+        minerZombieHitbox = false;
+        // Miner Skeleton Hitbox
+        @SwitchProperty({
+            name: "Miner Skeleton Hitbox",
+            description: "Draws a box around the miner skeleton",
+            category: "Mining Islands",
+            subcategory: "Deep Caverns"
+        })
+        minerSkeletonHitbox = false;
     
+//Spider's Den
+        //Arachne Alerts
+        @SwitchProperty({
+            name: "Arachne Alerts",
+            description: "Alerts you when Arachne spawns",
+            category: "Spider's Den",
+            subcategory: "Alerts"
+        })
+        arachneAlerts = false;
+        //Broodmother Alerts
+
+        //Rain Slime Alerts
+
+        //Toxic Slime Alerts
+
+        //Hitboxes for arachne, arachne minis, arachne keepers, broodmothers, silverfish, slimes, splitters, dashers, jockeys
+
+//Park
+
+//Barn
+
+//End
+
+//Crimson Isle
+
+//Dungeons
 
     // @SwitchProperty({
     //     name: "Show Secrets Clicked",
@@ -198,14 +261,6 @@ class Settings {
     //     subcategory: "Dungeons"
     // })
     // showSecretsClickedColor = Color.GREEN;
-
-    // @SwitchProperty({
-    //     name: "Run Splits",
-    //     description: "Displays your current dungeon run's splits",
-    //     category: "Dungeons",
-    //     subcategory: "Dungeons"
-    // })
-    // dungeonRunSplits = false;
 
     // @ButtonProperty({
     //     name: "Run Splits Location",
