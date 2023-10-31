@@ -20,6 +20,7 @@ import "./features/mobs/Hub"
 import "./features/mobs/Vanquisher"
 import "./features/mobs/headlessHorsemen"
 import "./features/mobs/dwarvenMines"
+import "./features/mobs/spidersDen"
 
 // Spiders Den
 import "./features/mobs/spidersDen/hitboxes"

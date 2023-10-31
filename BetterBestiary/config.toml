@@ -11,7 +11,11 @@
 
 	[hub.alerts]
 		headless_horsemen_alerts = true
-		zombie_villager_alerts = true
+		zombie_villager_alerts = false
+
+	[hub.hitboxes]
+		zombie_villager_hitbox = true
+		graveyard_zombie_hitbox = false
 
 [dungeons]
 
@@ -27,6 +31,11 @@
 
 	["spider's_den".alerts]
 		arachne_alerts = true
+
+	["spider's_den".hitboxes]
+		broodmother_hitbox = true
+		silverfish_hitbox = false
+		gravel_skeleton_hitbox = true
 
 [mining_islands]
 
