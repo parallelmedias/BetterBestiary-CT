@@ -5,14 +5,10 @@ import config from "./config"
 import "./features/commands/hidePlayers"
 import "./features/commands/warpParty"
 
-// Dungeons
-
-// Fishing
-
 // Misc
 import "./features/misc/chatFilters"
-import "./features/misc/nickHider"
 import "./features/misc/farmingAngle"
+import "./features/misc/dropTracker"
 
 // Mobs
 import "./features/mobs/deepCaverns"
@@ -21,12 +17,9 @@ import "./features/mobs/Vanquisher"
 import "./features/mobs/headlessHorsemen"
 import "./features/mobs/dwarvenMines"
 import "./features/mobs/spidersDen"
+import "./features/mobs/farmingIslands"
 
 // Spiders Den
-import "./features/mobs/spidersDen/hitboxes"
-import "./features/mobs/spidersDen/alerts"
-import "./features/mobs/spidersDen/timers"
-import "./features/mobs/spidersDen/waypoints"
 
 register("command", () => config.openGUI()).setName("bb")
 

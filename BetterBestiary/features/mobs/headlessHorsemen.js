@@ -19,3 +19,25 @@ register("step", () => {
         })
     }
 }).setFps(1)
+
+register("renderWorld", (partialTicks) => {
+
+    let entities = World.getAllEntities();
+    if (settings.hitboxMasterToggle) {
+        entities.forEach(entity => {
+
+            let x = Math.round(entity.getX());
+            let y = Math.round(entity.getY());
+
+            // Fear
+                if (entity.getClassName() === "EntityArmorStand") {
+                    ["fear"].forEach(rarity => {
+                        if (entity.getName().toLowerCase().includes(rarity)) {
+                            drawBox(entity, 255, 0, 0, 5.0, 1, -2, partialTicks);
+                        };
+                    });
+                    []
+                };
+        })
+    }
+});

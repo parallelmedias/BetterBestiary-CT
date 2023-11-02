@@ -1,31 +1,55 @@
 
 [general]
 
-	[general.general]
-		nick_hider = ""
-
 	[general.hitboxes]
 		hitbox_master_toggle = true
 
 [hub]
 
 	[hub.alerts]
-		headless_horsemen_alerts = true
-		zombie_villager_alerts = false
+		zombie_villager_alerts = true
 
 	[hub.hitboxes]
-		zombie_villager_hitbox = true
+		zombie_villager_hitbox = false
 		graveyard_zombie_hitbox = false
-
-[dungeons]
-
-	[dungeons.dungeons]
-		star_mob_esp = false
+		wolf_hitbox = true
+		crypt_ghoul_hitbox = true
+		golden_ghoul_hitbox = true
+		old_wolf_hitbox = true
 
 [crimson_isle]
 
 	[crimson_isle.alerts]
-		vanquisher_alerts = true
+		vanquisher_alerts = false
+
+[farming_islands]
+
+	[farming_islands.hitboxes]
+		sheep_hitbox = false
+		chicken_hitbox = false
+		cow_hitbox = false
+		pig_hitbox = false
+		mushroom_cow_hitbox = true
+		rabbit_hitbox = true
+
+[mining_islands]
+
+	[mining_islands.deep_caverns]
+		miner_zombie_hitbox = false
+		emerald_slime_hitbox = false
+		miner_skeleton_hitbox = false
+		redstone_pigman_hitbox = false
+		lapis_zombie_hitbox = true
+
+	[mining_islands.dwarven_mines]
+		diamond_goblin_hitbox = true
+		ice_walker_hitbox = true
+		golden_goblin_hitbox = true
+		powder_ghast_hitbox = true
+		star_sentry_hitbox = true
+		powder_ghast_alerts = true
+		golden_goblin_alerts = true
+		goblin_hitbox = true
 
 ["spider's_den"]
 
@@ -33,37 +57,27 @@
 		arachne_alerts = true
 
 	["spider's_den".hitboxes]
+		splitter_hitbox = false
+		dasher_hitbox = false
 		broodmother_hitbox = true
-		silverfish_hitbox = false
+		arachne_hitbox = false
+		slime_hitbox = true
+		jockey_hitbox = true
+		silverfish_hitbox = true
+		arachne_mini_hitbox = false
+		voracious_hitbox = false
+		arachne_keeper_hitbox = true
 		gravel_skeleton_hitbox = true
-
-[mining_islands]
-
-	[mining_islands.alerts]
-		powder_ghast_alerts = true
-		golden_goblin_alerts = true
-
-	[mining_islands.deep_caverns]
-		miner_zombie_hitbox = false
-		emerald_slime_hitbox = false
-		miner_skeleton_hitbox = false
-		redstone_pigman_hitbox = false
-		lapis_zombie_hitbox = false
-
-	[mining_islands.hitboxes]
-		powder_ghast_hitbox = true
-		golden_goblin_hitbox = true
-		deep_caverns_hitbox = true
-
-	[mining_islands.dwarven_mines]
-		powder_ghast_hitbox = true
-		golden_goblin_hitbox = true
-		powder_ghast_alerts = true
-		golden_goblin_alerts = true
 
 [misc]
 
+	[misc.alerts]
+		headless_horsemen_alerts = false
+
 	[misc.nick_hider]
-		nick_hider = "Lakia"
-		nick_hider_toggle = true
+		nick_hider = ""
+		nick_hider_toggle = false
+
+	[misc.misc]
+		drop_tracker = true
 
