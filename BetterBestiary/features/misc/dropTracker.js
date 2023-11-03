@@ -74,6 +74,7 @@ register("chat", (drop, mf) => {
     if (drop == "Epic Tarantula Pet") data.epic_tarantula_pets += 1;
     if (drop == "Legendary Tarantula Pet") data.legendary_tarantula_pets += 1;
     if (drop == "Travel Scroll to the Spider's Den Top of Nest") data.travel_scroll_to_the_spiders_den_top_of_nest += 1;
+    if (drop == "Enchanted Spider Eye") data.enchanted_spider_eyes += 1;
     // The End 
     if (drop == "Crystal Fragment") data.crystal_fragments += 1;
     if (drop == "Enchanted End Stone") data.enchanted_end_stones += 1;
@@ -91,6 +92,7 @@ register("chat", (drop, mf) => {
     if (drop == "Mutated Blaze Ashes") data.mutated_blaze_ashes += 1;
     if (drop == "Millenia-Old Blaze Ashes") data.millenia_old_blaze_ashes += 1;
     if (drop == "Flames") data.flames += 1;
+    // RARE DROP! Rampart Boots (+122% ✯ Magic Find)
 
     data.save();
 }).setCriteria("RARE DROP! ${drop} (+${mf}% ✯ Magic Find)");
@@ -102,7 +104,7 @@ register("renderOverlay", () => {
             const txt = "Click anywhere to move!"
             Renderer.drawStringWithShadow(txt, Renderer.screen.getWidth() / 2 - Renderer.getStringWidth(txt) / 2, Renderer.screen.getHeight() / 2)
         }
-        if (isPlayerAt("hub")){
+        if (isPlayerAt("hub") && !isPlayerAt("dungeon hub")){
             let epic_ghoul_txt = `&7Epic Ghoul Pets: &6${short_number(data.epic_ghoul_pets)}`;
             let legendary_ghoul_txt = `&7Legendary Ghoul Pets: &6${short_number(data.legendary_ghoul_pets)}`;
             let epic_hound_txt = `&7Epic Hound Pets: &6${short_number(data.epic_hound_pets)}`;
@@ -318,13 +320,16 @@ register("renderOverlay", () => {
                 Renderer.drawStringWithShadow(txt, Renderer.screen.getWidth() / 2 - Renderer.getStringWidth(txt) / 2, Renderer.screen.getHeight() / 2)
             }
 
+            let enchanted_spider_eyes_txt = `&7Enchanted Spider Eyes: &6${short_number(data.enchanted_spider_eyes)}`;
             let poison_txt = `&7Poison Samples: &6${short_number(data.poison_samples)}`;
             let arachne_txt = `&7Arachne's Calling: &6${short_number(data.arachnes_callings)}`;
             let epic_tarantula_txt = `&7Epic Tarantula Pets: &6${short_number(data.epic_tarantula_pets)}`;
             let legendary_tarantula_txt = `&7Legendary Tarantula Pets: &6${short_number(data.legendary_tarantula_pets)}`;
             let travel_txt = `&7Travel Scroll to the Spider's Den Top of Nest: &6${short_number(data.travel_scroll_to_the_spiders_den_top_of_nest)}`;
+
         
-            Renderer.drawStringWithShadow(`${PREFIX}\n${poison_txt
+            Renderer.drawStringWithShadow(`${PREFIX}\n${enchanted_spider_eyes_txt
+                }\n${poison_txt
                 }\n${arachne_txt
                 }\n${epic_tarantula_txt
                 }\n${legendary_tarantula_txt

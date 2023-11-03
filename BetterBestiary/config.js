@@ -276,7 +276,7 @@ class Settings {
         description: "Draws a box around the miner zombie",
         category: "Mining Islands",
         subcategory: "Deep Caverns"
-    })
+    }) 
     minerZombieHitbox = false;
     // Miner Skeleton Hitbox
     @SwitchProperty({
@@ -298,10 +298,18 @@ class Settings {
     arachneAlerts = false;
 
     //Broodmother Alerts
+    @SwitchProperty({
+        name: "Broodmother Alerts",
+        description: "Alerts you when Broodmother spawns",
+        category: "Spider's Den",
+        subcategory: "Alerts"
+    })
+    broodmotherAlerts = false;
 
     //Rain Slime Alerts
 
     //Toxic Slime Alerts
+    
     //Hitboxes
     // Broodmother Hitbox
     @SwitchProperty({
@@ -399,6 +407,7 @@ class Settings {
 
 //Crimson Isle
     //Alerts
+    // Vanquisher Alert
     @SwitchProperty({
         name: "Vanquisher Alerts",
         description: "Alerts you when the vanquisher spawns",
@@ -406,6 +415,128 @@ class Settings {
         subcategory: "Alerts"
     })
     vanquisherAlerts = false;
+    // Crimson Ghast Alert
+    @SwitchProperty({
+        name: "Crimson Ghast Alerts",
+        description: "Alerts you when the crimson ghast spawns",
+        category: "Crimson Isle",
+        subcategory: "Alerts"
+    })
+    crimsonGhastAlert = false;
+
+    //Hitboxes
+    // Vanquisher Hitbox
+    @SwitchProperty({
+        name: "Vanquisher Hitbox",
+        description: "Draws a box around the vanquisher",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    vanquisherHitbox = false;
+    // Wither Spectre Hitbox
+    @SwitchProperty({
+        name: "Wither Spectre Hitbox",
+        description: "Draws a box around the wither spectre",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    witherSpectreHitbox = false;
+    // Bezal Hitbox
+    @SwitchProperty({
+        name: "Bezal Hitbox",
+        description: "Draws a box around the bezal",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    bezalHitbox = false;
+    // Blaze Hitbox
+    @SwitchProperty({
+        name: "Blaze Hitbox",
+        description: "Draws a box around the blaze",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    blazeHitbox = false;
+    // Mutated Blaze Hitbox
+    @SwitchProperty({
+        name: "Mutated Blaze Hitbox",
+        description: "Draws a box around the mutated blaze",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    mutatedBlazeHitbox = false;
+    // Wither Skeleton Hitbox
+    @SwitchProperty({
+        name: "Wither Skeleton Hitbox",
+        description: "Draws a box around the wither skeleton",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    witherSkeletonHitbox = false;
+    // Magma Cube Hitbox
+    @SwitchProperty({
+        name: "Magma Cube Hitbox",
+        description: "Draws a box around the magma cube",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    magmaCubeHitbox = false;
+    // Pack Magma Cube Hitbox
+    @SwitchProperty({
+        name: "Pack Magma Cube Hitbox",
+        description: "Draws a box around the pack magma cube",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    packMagmaCubeHitbox = false;
+    // Flaming Spider Hitbox
+    @SwitchProperty({
+        name: "Flaming Spider Hitbox",
+        description: "Draws a box around the flaming spider",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    flamingSpiderHitbox = false;
+    // Magma Cube Rider Hitbox
+    @SwitchProperty({
+        name: "Magma Cube Rider Hitbox",
+        description: "Draws a box around the magma cube rider",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    magmaCubeRiderHitbox = false;
+    // Ghast Hitbox
+    @SwitchProperty({
+        name: "Ghast Hitbox",
+        description: "Draws a box around the ghast",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    ghastHitbox = false;
+    // Mushroom Bull Hitbox
+    @SwitchProperty({
+        name: "Mushroom Bull Hitbox",
+        description: "Draws a box around the mushroom bull",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    mushroomBullHitbox = false;
+    // Flare Hitbox
+    @SwitchProperty({
+        name: "Flare Hitbox",
+        description: "Draws a box around the flare",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    flareHitbox = false;
+    // Kada Knight Hitbox
+    @SwitchProperty({
+        name: "Kada Knight Hitbox",
+        description: "Draws a box around the kada knight",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    kadaKnightHitbox = false;
 
     //Dungeons
 

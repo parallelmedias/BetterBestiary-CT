@@ -2,14 +2,14 @@
   "name": "Better Bestiary",
   "creator": "Lakia",
   "description": "",
-  "version": "0.0.1",
+  "version": "2.1.0",
   "entry": "index.js",
   "requires": [
     "RenderLib",
     "requestV2",
     "PromiseV2",
     "Vigilance",
-    "sleep",
-    "PogData"
+    "PogData",
+    "BeaconBeam"
   ]
 }

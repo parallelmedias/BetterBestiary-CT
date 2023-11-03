@@ -68,6 +68,7 @@ export const data = new PogObject("BetterBestiary", {
     epic_bal_pets: 0,
     legendary_bal_pets: 0,
     // Spiders Den
+    enchanted_spider_eyes: 0,
     poison_samples: 0,
     arachnes_callings: 0,
     epic_tarantula_pets: 0,

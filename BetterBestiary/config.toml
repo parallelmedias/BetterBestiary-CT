@@ -20,7 +20,24 @@
 [crimson_isle]
 
 	[crimson_isle.alerts]
-		vanquisher_alerts = false
+		crimson_ghast_alerts = true
+		vanquisher_alerts = true
+
+	[crimson_isle.hitboxes]
+		mutated_blaze_hitbox = true
+		magma_cube_rider_hitbox = true
+		flare_hitbox = false
+		wither_spectre_hitbox = true
+		vanquisher_hitbox = true
+		kada_knight_hitbox = true
+		flaming_spider_hitbox = true
+		ghast_hitbox = true
+		mushroom_bull_hitbox = true
+		wither_skeleton_hitbox = true
+		bezal_hitbox = true
+		magma_cube_hitbox = false
+		pack_magma_cube_hitbox = true
+		blaze_hitbox = true
 
 [farming_islands]
 
@@ -29,7 +46,7 @@
 		chicken_hitbox = false
 		cow_hitbox = false
 		pig_hitbox = false
-		mushroom_cow_hitbox = true
+		mushroom_cow_hitbox = false
 		rabbit_hitbox = true
 
 [mining_islands]
@@ -55,6 +72,7 @@
 
 	["spider's_den".alerts]
 		arachne_alerts = true
+		broodmother_alerts = true
 
 	["spider's_den".hitboxes]
 		splitter_hitbox = false
@@ -68,6 +86,9 @@
 		voracious_hitbox = false
 		arachne_keeper_hitbox = true
 		gravel_skeleton_hitbox = true
+
+	["spider's_den".keeper_waypoints]
+		keeper_waypoints = false
 
 [misc]
 
