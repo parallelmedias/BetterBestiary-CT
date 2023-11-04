@@ -1,4 +1,4 @@
-import { PREFIX, chat, data, isPlayerAt, rareDropGui, short_number } from "../../utils/Utils";
+import { PREFIX, chat, data, isInTab, rareDropGui, short_number } from "../../utils/Utils";
 import settings from "../../config";
 
 register("command", () => {
@@ -104,7 +104,7 @@ register("renderOverlay", () => {
             const txt = "Click anywhere to move!"
             Renderer.drawStringWithShadow(txt, Renderer.screen.getWidth() / 2 - Renderer.getStringWidth(txt) / 2, Renderer.screen.getHeight() / 2)
         }
-        if (isPlayerAt("hub") && !isPlayerAt("dungeon hub")){
+        if (isInTab("hub") && !isInTab("dungeon hub")){
             let epic_ghoul_txt = `&7Epic Ghoul Pets: &6${short_number(data.epic_ghoul_pets)}`;
             let legendary_ghoul_txt = `&7Legendary Ghoul Pets: &6${short_number(data.legendary_ghoul_pets)}`;
             let epic_hound_txt = `&7Epic Hound Pets: &6${short_number(data.epic_hound_pets)}`;
@@ -129,7 +129,7 @@ register("renderOverlay", () => {
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
         
-        if (isPlayerAt("deep caverns")) {
+        if (isInTab("deep caverns")) {
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
                 Renderer.drawStringWithShadow(txt, Renderer.screen.getWidth() / 2 - Renderer.getStringWidth(txt) / 2, Renderer.screen.getHeight() / 2)
@@ -169,7 +169,7 @@ register("renderOverlay", () => {
 // The Park
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
-        if (isPlayerAt("the park")){
+        if (isInTab("the park")){
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
                 Renderer.drawStringWithShadow(txt, Renderer.screen.getWidth() / 2 - Renderer.getStringWidth(txt) / 2, Renderer.screen.getHeight() / 2)
@@ -194,7 +194,7 @@ register("renderOverlay", () => {
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
 
-        if (isPlayerAt("farming islands")){
+        if (isInTab("farming islands")){
 
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
@@ -216,7 +216,7 @@ register("renderOverlay", () => {
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
 
-        if (isPlayerAt("dwarven mines")){
+        if (isInTab("dwarven mines")){
 
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
@@ -267,7 +267,7 @@ register("renderOverlay", () => {
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
 
-        if (isPlayerAt("crystal hollows")) {
+        if (isInTab("crystal hollows")) {
 
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
@@ -313,7 +313,7 @@ register("renderOverlay", () => {
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
 
-        if (isPlayerAt("Spider's Den")) {
+        if (isInTab("Spider's Den")) {
 
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
@@ -344,7 +344,7 @@ register("renderOverlay", () => {
 // The End
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
-        if (isPlayerAt("The End")){
+        if (isInTab("The End")){
 
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"
@@ -386,7 +386,7 @@ register("renderOverlay", () => {
 register("renderOverlay", () => {
     if (settings.dropTrackerGUI) {
         
-        if (isPlayerAt("crimson isle")){
+        if (isInTab("crimson isle")){
 
             if (rareDropGui.isOpen()) {
                 const txt = "Click anywhere to move!"

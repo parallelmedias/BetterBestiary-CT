@@ -1,36 +1,31 @@
-import {
-    @Vigilant,
-    @TextProperty,
-    @ColorProperty,
-    @ButtonProperty,
-    @SwitchProperty,
-    @SelectorProperty,
-    Color 
-} from 'Vigilance'
+import { @Vigilant, @TextProperty, @ColorProperty, @ButtonProperty, @SwitchProperty, @SelectorProperty } from 'Vigilance'
 
 @Vigilant("BetterBestiary", "BetterBestiary", {
     getCategoryComparator: () => (a, b) => {
-        const categories = ["General",
-            "Private Island",
+        const categories = [
+            "General",
             "Hub",
             "Farming Islands",
             "Park",
-            "Mining Islands",
+            "Deep Cavern",
+            "Dwarven Mines",
+            "Crystal Hollows",
             "Spider's Den",
-            "End",
+            "The End",
             "Crimson Isle",
             "Fishing",
             "Dungeons",
             "Misc"
         ]
-        return categories.indexOf(a.name) - categories.indexOf(b.name)
+        return categories.indexOf(a.name) - categories.indexOf(b.name) //q: what does this do? a: it sorts the categories in the order of the array What if I want to have them ordered in a specific way? A: then you can change the order of the array
     }
 })
 
 class Settings {
     constructor() {
         this.initialize(this)
-        this.setCategoryDescription("General", "Author Lakia")
+        this.setCategoryDescription("General", `&aBetter Bestiary &bv${JSON.parse(FileLib.read("BetterBestiary", "metadata.json")).version}` + 
+        `\n&aBy &bLakia`)
     }
 
     // General
@@ -53,519 +48,538 @@ class Settings {
     })
     hitboxMasterToggle = false;
 
-// Misc
-    // Mobs
-    @SwitchProperty({
-        name: "Headless Horsemen Alerts",
-        description: "Alerts you when the headless horsemen spawns",
-        category: "Misc",
-        subcategory: "Alerts"
-    })
-    headlessHorsemenAlerts = false;
+    // Misc
     // Drop Tracker
     @SwitchProperty({
         name: "Drop Tracker",
-        description: "Displays a GUI that tracks rare drops",
+        description: "Tracks drops from mobs",
         category: "Misc",
         subcategory: "Misc"
     })
     dropTrackerGUI = false;
 
+    // Private Island
 
-//Hub
-    //Alerts
-    //Zombie Villager Alerts    
+    // Spooky Mobs
+    // Alerts
     @SwitchProperty({
-        name: "Zombie Villager Alerts",
-        description: "Alerts you when the zombie villager spawns",
+        name: "Headless Horsemen Party Alerts",
+        description: "Alerts you when it's 6:00pm and 5:00am to ready your party for warping to the Headless Horsemen",
+        category: "Hub",
+        subcategory: "Spooky Mobs"
+    })
+    headlessHorsemenPartyAlerts = false;
+
+    // Hub
+    // Zombie Villager Alert
+    @SwitchProperty({
+        name: "Zombie Villager Alert",
+        description: "Alerts you when it's 8:00pm in the Hub",
         category: "Hub",
         subcategory: "Alerts"
     })
-    zombieVillagerAlerts = false;
-    //Hitboxes
-    // Graveyard Zombie Hitboxes
+    zombieVillagerAlert = false;
+
+    // Hitboxes
+    // Graveyard Zombie
     @SwitchProperty({
-        name: "Graveyard Zombie Hitbox",
-        description: "Draws a box around the graveyard zombie",
+        name: "Graveyard Zombie Hitboxes",
         category: "Hub",
         subcategory: "Hitboxes"
     })
     graveyardZombieHitboxes = false;
-    // Zombie Villager Hitboxes
+
+    // Zombie Villager
     @SwitchProperty({
-        name: "Zombie Villager Hitbox",
-        description: "Draw a box around the zombie villager",
+        name: "Zombie Villager Hitboxes",
         category: "Hub",
         subcategory: "Hitboxes"
     })
     zombieVillagerHitboxes = false;
-    // Crypt Ghoul Hitboxes
+
+    // Crypt Ghoul
     @SwitchProperty({
-        name: "Crypt Ghoul Hitbox",
-        description: "Draws a box around the crypt ghoul",
+        name: "Crypt Ghoul Hitboxes",
         category: "Hub",
         subcategory: "Hitboxes"
     })
     cryptGhoulHitboxes = false;
-    // Golden Ghoul Hitboxes
+
+    // Golden Ghoul
     @SwitchProperty({
-        name: "Golden Ghoul Hitbox",
-        description: "Draws a box around the golden ghoul",
+        name: "Golden Ghoul Hitboxes",
         category: "Hub",
         subcategory: "Hitboxes"
     })
     goldenGhoulHitboxes = false;
-    // Old Wolf Hitboxes
+
+    // Old Wolf
     @SwitchProperty({
-        name: "Old Wolf Hitbox",
-        description: "Draws a box around the old wolf",
+        name: "Old Wolf Hitboxes",
         category: "Hub",
         subcategory: "Hitboxes"
     })
     oldWolfHitboxes = false;
 
-// Farming Islands
-    //Hitboxes
-    // Sheep
-    @SwitchProperty({
-        name: "Sheep Hitbox",
-        description: "Draws a box around the sheep",
-        category: "Farming Islands",
-        subcategory: "Hitboxes"
-    })
-    sheepHitboxes = false;
-    // Rabbit
-    @SwitchProperty({
-        name: "Rabbit Hitbox",
-        description: "Draws a box around the rabbit",
-        category: "Farming Islands",
-        subcategory: "Hitboxes"
-    })
-    rabbitHitboxes = false;
-    // Chicken
-    @SwitchProperty({
-        name: "Chicken Hitbox",
-        description: "Draws a box around the chicken",
-        category: "Farming Islands",
-        subcategory: "Hitboxes"
-    })
-    chickenHitboxes = false;
+    // Farming Islands
+    // Hitboxes
     // Cow
     @SwitchProperty({
-        name: "Cow Hitbox",
-        description: "Draws a box around the cow",
+        name: "Cow Hitboxes",
         category: "Farming Islands",
         subcategory: "Hitboxes"
     })
     cowHitboxes = false;
+
+    // Chicken
+    @SwitchProperty({
+        name: "Chicken Hitboxes",
+        category: "Farming Islands",
+        subcategory: "Hitboxes"
+    })
+    chickenHitboxes = false;
+
     // Pig
     @SwitchProperty({
-        name: "Pig Hitbox",
-        description: "Draws a box around the pig",
+        name: "Pig Hitboxes",
         category: "Farming Islands",
         subcategory: "Hitboxes"
     })
     pigHitboxes = false;
+
+    // Sheep
+    @SwitchProperty({
+        name: "Sheep Hitboxes",
+        category: "Farming Islands",
+        subcategory: "Hitboxes"
+    })
+    sheepHitboxes = false;
+
+    // Rabbit
+    @SwitchProperty({
+        name: "Rabbit Hitboxes",
+        category: "Farming Islands",
+        subcategory: "Hitboxes"
+    })
+    rabbitHitboxes = false;
+
     // Mushroom Cow
     @SwitchProperty({
-        name: "Mushroom Cow Hitbox",
-        description: "Draws a box around the mushroom cow",
+        name: "Mushroom Cow Hitboxes",
         category: "Farming Islands",
         subcategory: "Hitboxes"
     })
     mushroomCowHitboxes = false;
 
-// Dwarven Mines
-    //Alerts
+    // Park
+    // Hitboxes
+    // Pack Spirit
+    @SwitchProperty({
+        name: "Pack Spirit Hitboxes",
+        category: "Park",
+        subcategory: "Hitboxes"
+    })
+    packSpiritHitboxes = false;
+
+    // Howling Spirit
+    @SwitchProperty({
+        name: "Howling Spirit Hitboxes",
+        category: "Park",
+        subcategory: "Hitboxes"
+    })
+    howlingSpiritHitboxes = false;
+
+    // Soul of the Alpha
+    @SwitchProperty({
+        name: "Soul of the Alpha Hitboxes",
+        category: "Park",
+        subcategory: "Hitboxes"
+    })
+    soulOfTheAlphaHitboxes = false;
+
+    // Deep Cavern
+    // Hitboxes
+    // Lapis Zombie
+    @SwitchProperty({
+        name: "Lapis Zombie Hitboxes",
+        category: "Deep Cavern",
+        subcategory: "Hitboxes"
+    })
+    lapisZombieHitboxes = false;
+
+    // Redstone Pigman
+    @SwitchProperty({
+        name: "Redstone Pigman Hitboxes",
+        category: "Deep Cavern",
+        subcategory: "Hitboxes"
+    })
+    redstonePigmanHitboxes = false;
+
+    // Emerald Slime
+    @SwitchProperty({
+        name: "Emerald Slime Hitboxes",
+        category: "Deep Cavern",
+        subcategory: "Hitboxes"
+    })
+    emeraldSlimeHitboxes = false;
+
+    // Miner Zombie
+    @SwitchProperty({
+        name: "Miner Zombie Hitboxes",
+        category: "Deep Cavern",
+        subcategory: "Hitboxes"
+    })
+    minerZombieHitboxes = false;
+
+    // Miner Skeleton
+    @SwitchProperty({
+        name: "Miner Skeleton Hitboxes",
+        category: "Deep Cavern",
+        subcategory: "Hitboxes"
+    })
+    minerSkeletonHitboxes = false;
+
+    // Dwarven Mines
+    // Alerts
     // Powder Ghast Alert
     @SwitchProperty({
-        name: "Powder Ghast Alerts",
-        description: "Alerts you when the powder ghast spawns",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Powder Ghast Alert",
+        description: "Alerts you to the location of a Powder Ghast when it spawns",
+        category: "Dwarven Mines",
+        subcategory: "Alerts"
     })
-    powderGhastAlerts = false;
+    powderGhastAlert = false;
+
     // Golden Goblin Alert
     @SwitchProperty({
-        name: "Golden Goblin Alerts",
-        description: "Alerts you when the golden goblin spawns",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Golden Goblin Alert",
+        category: "Dwarven Mines",
+        subcategory: "Alerts"
     })
-    goldenGoblinAlerts = false;
+    goldenGoblinAlert = false;
 
-    //Hitboxes
-    // Powder Ghast Hitbox
+    // Diamond Goblin Alert
     @SwitchProperty({
-        name: "Powder Ghast Hitbox",
-        description: "Draws a box around the powder ghast",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Diamond Goblin Alert",
+        category: "Dwarven Mines",
+        subcategory: "Alerts"
     })
-    powderGhastHitboxes = false;
-    // Golden Goblin Hitbox
+    diamondGoblinAlert = false;
+
+    // Hitboxes
+    // Golden Goblin
     @SwitchProperty({
-        name: "Golden Goblin Hitbox",
-        description: "Draws a box around the golden goblin",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Golden Goblin Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
     })
     goldenGoblinHitboxes = false;
-    // Diamond Goblin Hitbox
+
+    // Diamond Goblin
     @SwitchProperty({
-        name: "Diamond Goblin Hitbox",
-        description: "Draws a box around the diamond goblin",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Diamond Goblin Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
     })
     diamondGoblinHitboxes = false;
-    // Ice Walker Hitbox
+
+    // Powder Ghast
     @SwitchProperty({
-        name: "Ice Walker Hitbox",
-        description: "Draws a box around the ice walker",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Powder Ghast Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
+    })
+    powderGhastHitboxes = false;
+
+    // Ice Walker
+    @SwitchProperty({
+        name: "Ice Walker Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
     })
     iceWalkerHitboxes = false;
-    // Goblin Hitbox
+
+    // Goblin
     @SwitchProperty({
-        name: "Goblin Hitbox",
-        description: "Draws a box around the goblin",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Goblin Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
     })
     goblinHitboxes = false;
-    // Star Sentry Hitbox
+
+    // Treasure Hoarder
     @SwitchProperty({
-        name: "Star Sentry Hitbox",
-        description: "Draws a box around the star sentry",
-        category: "Mining Islands",
-        subcategory: "Dwarven Mines"
+        name: "Treasure Hoarder Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
+    })
+    treasureHoarderHitboxes = false;
+
+    // Star Sentry
+    @SwitchProperty({
+        name: "Star Sentry Hitboxes",
+        category: "Dwarven Mines",
+        subcategory: "Hitboxes"
     })
     starSentryHitboxes = false;
 
-// Deep Caverns
-    //Hitboxes
-    // Lapis Zombie Hitbox
-    @SwitchProperty({
-        name: "Lapis Zombie Hitbox",
-        description: "Draws a box around the lapis zombie",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    lapisZombieHitbox = false;
-    // Redstone Pigman Hitbox
-    @SwitchProperty({
-        name: "Redstone Pigman Hitbox",
-        description: "Draws a box around the redstone pigman",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    redstonePigmanHitbox = false;
-    // Emerald Slime Hitbox
-    @SwitchProperty({
-        name: "Emerald Slime Hitbox",
-        description: "Draws a box around the emerald slime",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    emeraldSlimeHitbox = false;
-    // Miner Zombie Hitbox
-    @SwitchProperty({
-        name: "Miner Zombie Hitbox",
-        description: "Draws a box around the miner zombie",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    }) 
-    minerZombieHitbox = false;
-    // Miner Skeleton Hitbox
-    @SwitchProperty({
-        name: "Miner Skeleton Hitbox",
-        description: "Draws a box around the miner skeleton",
-        category: "Mining Islands",
-        subcategory: "Deep Caverns"
-    })
-    minerSkeletonHitbox = false;
+    // Crystal Hollows
 
-// Spider's Den
-    //Alerts
+    // Spider's Den
+    // Alerts
+    // Arachne Alert
     @SwitchProperty({
-        name: "Arachne Alerts",
-        description: "Alerts you when Arachne spawns",
+        name: "Arachne Alert",
+        description: "Alerts you when an Arachne spawns",
         category: "Spider's Den",
         subcategory: "Alerts"
     })
     arachneAlerts = false;
-
-    //Broodmother Alerts
+    // Broodmother Alerts
     @SwitchProperty({
-        name: "Broodmother Alerts",
-        description: "Alerts you when Broodmother spawns",
+        name: "Broodmother Alert",
+        description: "Alerts you when a Broodmother spawns",
         category: "Spider's Den",
         subcategory: "Alerts"
     })
     broodmotherAlerts = false;
+    // Hitboxes
+    // Arachne
+    @SwitchProperty({
+        name: "Arachne Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    arachneHitboxes = false;
 
-    //Rain Slime Alerts
+    // Arachne's Brood
+    @SwitchProperty({
+        name: "Arachne's Brood Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    arachnesBroodHitboxes = false;
 
-    //Toxic Slime Alerts
-    
-    //Hitboxes
-    // Broodmother Hitbox
+    // Arachne's Keeper
     @SwitchProperty({
-        name: "Broodmother Hitbox",
-        description: "Draws a box around the broodmother",
+        name: "Arachne's Keeper Hitboxes",
         category: "Spider's Den",
         subcategory: "Hitboxes"
     })
-    broodmotherHitbox = false;
-    // Gravel Skeleton Hitbox
-    @SwitchProperty({
-        name: "Gravel Skeleton Hitbox",
-        description: "Draws a box around the gravel skeleton",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    gravelSkeletonHitbox = false;
-    //Arachne Hitbox
-    @SwitchProperty({
-        name: "Arachne Hitbox",
-        description: "Draws a box around Arachne",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    arachneHitbox = false;
-    //Arachne Keeper Hitbox
-    @SwitchProperty({
-        name: "Arachne Keeper Hitbox",
-        description: "Draws a box around Arachne Keeper",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    arachneKeeperHitbox = false;
-    //Arachne Mini Hitbox
-    @SwitchProperty({
-        name: "Arachne Mini Hitbox",
-        description: "Draws a box around Arachne Mini",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    arachneMiniHitbox = false;
-    //Silverfish Hitbox
-    @SwitchProperty({
-        name: "Silverfish Hitbox",
-        description: "Draws a box around Silverfish",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    silverfishHitbox = false;
-    //Slime Hitbox
-    @SwitchProperty({
-        name: "Slime Hitbox",
-        description: "Draws a box around Slime",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    slimeHitbox = false;
-    //Splitter Hitbox
-    @SwitchProperty({
-        name: "Splitter Hitbox",
-        description: "Draws a box around Splitter",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    splitterHitbox = false;
-    //Dasher Hitbox
-    @SwitchProperty({
-        name: "Dasher Hitbox",
-        description: "Draws a box around Dasher",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    dasherHitbox = false;
-    //Voracious Hitbox
-    @SwitchProperty({
-        name: "Voracious Hitbox",
-        description: "Draws a box around Voracious",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    voraciousHitbox = false;
-    //Jockey Hitbox
-    @SwitchProperty({
-        name: "Jockey Hitbox",
-        description: "Draws a box around Jockey",
-        category: "Spider's Den",
-        subcategory: "Hitboxes"
-    })
-    jockeyHitbox = false;
+    arachnesKeeperHitboxes = false;
 
-
-//Park
-
-//End
-
-//Crimson Isle
-    //Alerts
-    // Vanquisher Alert
+    // Broodmother
     @SwitchProperty({
-        name: "Vanquisher Alerts",
-        description: "Alerts you when the vanquisher spawns",
-        category: "Crimson Isle",
-        subcategory: "Alerts"
+        name: "Broodmother Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
     })
-    vanquisherAlerts = false;
-    // Crimson Ghast Alert
+    broodmotherHitboxes = false;
+
+    // Dasher Spider
     @SwitchProperty({
-        name: "Crimson Ghast Alerts",
-        description: "Alerts you when the crimson ghast spawns",
+        name: "Dasher Spider Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    dasherSpiderHitboxes = false;
+
+    // Gravel Skeleton
+    @SwitchProperty({
+        name: "Gravel Skeleton Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    gravelSkeletonHitboxes = false;
+
+    // Rain Slime
+    @SwitchProperty({
+        name: "Rain Slime Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    rainSlimeHitboxes = false;
+
+    // Toxic Slime
+    @SwitchProperty({
+        name: "Toxic Slime Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    toxicSlimeHitboxes = false;
+
+    // Spider Jockey
+    @SwitchProperty({
+        name: "Spider Jockey Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    spiderJockeyHitboxes = false;
+
+    // Splitter Spider
+    @SwitchProperty({
+        name: "Splitter Spider Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    splitterSpiderHitboxes = false;
+
+    // Voracious Spider
+    @SwitchProperty({
+        name: "Voracious Spider Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    voraciousSpiderHitboxes = false;
+
+    // Weaver Spider
+    @SwitchProperty({
+        name: "Weaver Spider Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+    weaverSpiderHitboxes = false;
+
+    // Silverfish
+    @SwitchProperty({
+        name: "Silverfish Hitboxes",
+        category: "Spider's Den",
+        subcategory: "Hitboxes"
+    })
+
+    // End
+
+    // Crimson Isle
+    // Alerts
+    // Ghast Alert
+    @SwitchProperty({
+        name: "Crimson Ghast Alert",
         category: "Crimson Isle",
         subcategory: "Alerts"
     })
     crimsonGhastAlert = false;
 
-    //Hitboxes
-    // Vanquisher Hitbox
+    // Vanquiser Alert
     @SwitchProperty({
-        name: "Vanquisher Hitbox",
-        description: "Draws a box around the vanquisher",
+        name: "Vanquisher Alert",
         category: "Crimson Isle",
-        subcategory: "Hitboxes"
+        subcategory: "Alerts"
     })
-    vanquisherHitbox = false;
-    // Wither Spectre Hitbox
-    @SwitchProperty({
-        name: "Wither Spectre Hitbox",
-        description: "Draws a box around the wither spectre",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    witherSpectreHitbox = false;
-    // Bezal Hitbox
-    @SwitchProperty({
-        name: "Bezal Hitbox",
-        description: "Draws a box around the bezal",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    bezalHitbox = false;
-    // Blaze Hitbox
-    @SwitchProperty({
-        name: "Blaze Hitbox",
-        description: "Draws a box around the blaze",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    blazeHitbox = false;
-    // Mutated Blaze Hitbox
-    @SwitchProperty({
-        name: "Mutated Blaze Hitbox",
-        description: "Draws a box around the mutated blaze",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    mutatedBlazeHitbox = false;
-    // Wither Skeleton Hitbox
-    @SwitchProperty({
-        name: "Wither Skeleton Hitbox",
-        description: "Draws a box around the wither skeleton",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    witherSkeletonHitbox = false;
-    // Magma Cube Hitbox
-    @SwitchProperty({
-        name: "Magma Cube Hitbox",
-        description: "Draws a box around the magma cube",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    magmaCubeHitbox = false;
-    // Pack Magma Cube Hitbox
-    @SwitchProperty({
-        name: "Pack Magma Cube Hitbox",
-        description: "Draws a box around the pack magma cube",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    packMagmaCubeHitbox = false;
-    // Flaming Spider Hitbox
-    @SwitchProperty({
-        name: "Flaming Spider Hitbox",
-        description: "Draws a box around the flaming spider",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    flamingSpiderHitbox = false;
-    // Magma Cube Rider Hitbox
-    @SwitchProperty({
-        name: "Magma Cube Rider Hitbox",
-        description: "Draws a box around the magma cube rider",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    magmaCubeRiderHitbox = false;
-    // Ghast Hitbox
-    @SwitchProperty({
-        name: "Ghast Hitbox",
-        description: "Draws a box around the ghast",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    ghastHitbox = false;
-    // Mushroom Bull Hitbox
-    @SwitchProperty({
-        name: "Mushroom Bull Hitbox",
-        description: "Draws a box around the mushroom bull",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    mushroomBullHitbox = false;
-    // Flare Hitbox
-    @SwitchProperty({
-        name: "Flare Hitbox",
-        description: "Draws a box around the flare",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    flareHitbox = false;
-    // Kada Knight Hitbox
-    @SwitchProperty({
-        name: "Kada Knight Hitbox",
-        description: "Draws a box around the kada knight",
-        category: "Crimson Isle",
-        subcategory: "Hitboxes"
-    })
-    kadaKnightHitbox = false;
+    vanquisherAlerts = false;
 
-    //Dungeons
+    // Hitboxes
+    // Vanquisher
+    @SwitchProperty({
+        name: "Vanquisher Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    vanquisherHitboxes = false;
 
-    // @SwitchProperty({
-    //     name: "Show Secrets Clicked",
-    //     description: "Draws a box in the clicked chest/wither essence/redstone skull",
-    //     category: "Dungeons",
-    //     subcategory: "Dungeons"
-    // })
-    // showSecretsClicked = false;
+    // Wither Spectre
+    @SwitchProperty({
+        name: "Wither Spectre Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    witherSpectreHitboxes = false;
 
-    // @ColorProperty({
-    //     name: "Secrets Click Color",
-    //     description: "Changes the highlight color of the secret when you click it",
-    //     category: "Dungeons",
-    //     subcategory: "Dungeons"
-    // })
-    // showSecretsClickedColor = Color.GREEN;
+    // Bezal
+    @SwitchProperty({
+        name: "Bezal Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    bezalHitboxes = false;
 
-    // @ButtonProperty({
-    //     name: "Run Splits Location",
-    //     description: "Changes The Display Location",
-    //     category: "Dungeons",
-    //     subcategory: "Dungeons",
-    //     placeholder: "Change"
-    // })
-    // changeRunSplitsDisplay() {
-    //     ChatLib.command("runSplitsDisplay", true);
-    // }
+    // Blaze
+    @SwitchProperty({
+        name: "Blaze Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    blazeHitboxes = false;
+
+    // Mutated Blaze
+    @SwitchProperty({
+        name: "Mutated Blaze Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    mutatedBlazeHitboxes = false;
+
+    // Wither Skeleton
+    @SwitchProperty({
+        name: "Wither Skeleton Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    witherSkeletonHitboxes = false;
+
+    // Magma Cube
+    @SwitchProperty({
+        name: "Magma Cube Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    magmaCubeHitboxes = false;
+
+    // Pack Magma Cube
+    @SwitchProperty({
+        name: "Pack Magma Cube Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    packMagmaCubeHitboxes = false;
+
+    // Flaming Spider
+    @SwitchProperty({
+        name: "Flaming Spider Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    flamingSpiderHitboxes = false;
+
+    // Magma Cube Rider
+    @SwitchProperty({
+        name: "Magma Cube Rider Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    magmaCubeRiderHitboxes = false;
+
+    // Ghast
+    @SwitchProperty({
+        name: "Crimson Ghast Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    crimsonGhastHitboxes = false;
+
+    // Mushroom Bull
+    @SwitchProperty({
+        name: "Mushroom Bull Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    mushroomBullHitboxes = false;
+
+    // Flare
+    @SwitchProperty({
+        name: "Flare Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    flareHitboxes = false;
+
+    // Kada Knight
+    @SwitchProperty({
+        name: "Kada Knight Hitboxes",
+        category: "Crimson Isle",
+        subcategory: "Hitboxes"
+    })
+    kadaKnightHitboxes = false;
+
 
 }
 

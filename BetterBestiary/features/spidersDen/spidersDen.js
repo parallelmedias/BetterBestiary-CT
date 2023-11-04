@@ -1,5 +1,6 @@
+import RenderLibV2 from "../../../RenderLibV2";
 import settings from "../../config"
-import { PREFIX, drawBox, isPlayerAt } from "../../utils/Utils"
+import { isInTab, EntityArmorStand } from "../../utils/Utils";
 
 //// Arachne Alerts ////
 register("chat", (e) => {
@@ -17,7 +18,7 @@ register("chat", (e) => {
 // Broodmother Alerts
 register("chat", (e) => {
     if (settings.broodmotherAlerts) {
-        
+
         let entities = World.getAllEntities();
 
         entities.forEach(entity => {
@@ -45,143 +46,97 @@ register("chat", (event) => cancel(event)).setCriteria(/.+ dealt the final blow.
 register("chat", (event) => cancel(event)).setCriteria(/.+ Damager - .+/)
 
 // Hitboxes
-register("renderWorld", (partialTicks) => {
+register("renderWorld", () => {
+    if (!World.isLoaded()) return
 
-    let entities = World.getAllEntities();
+    mobs = World.getAllEntitiesOfType(EntityArmorStand);
+    entities = World.getAllEntities();
+
     if (settings.hitboxMasterToggle) {
-        if (isPlayerAt("spider", "den")) {
-            entities.forEach(entity => {
 
-                let x = Math.round(entity.getX());
-                let y = Math.round(entity.getY());
+        if (isInTab("Den")) {
 
+            mobs.forEach(entity => {
+                // Arachne
+                if (settings.arachneHitboxes) {
+                    if (entity.getName().toLowerCase().includes("arachne") && !entity.getName().toLowerCase().includes("Fragment") ) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
+                }
+                // Arachne's Brood
+                if (settings.arachnesBroodHitboxes) {
+                    if (entity.getName().toLowerCase().includes("brood")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
+                }
+                // Arachne's Keeper
+                if (settings.arachnesKeeperHitboxes) {
+                    if (entity.getName().toLowerCase().includes("keeper")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
+                }
                 // Broodmother
-                if (settings.broodmotherHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["broodmother"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, 0.5, partialTicks);
-                            };
-                        });
-                        []
-                    };
+                if (settings.broodmotherHitboxes) {
+                    if (entity.getName().toLowerCase().includes("broodmother")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
+                }
+                // Dasher Spider
+                if (settings.dasherSpiderHitboxes) {
+                    if (entity.getName().toLowerCase().includes("dasher")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
                 }
                 // Gravel Skeleton
-                if (settings.gravelSkeletonHitbox) {
-                    if (entity.getClassName() === "EntitySkeleton") {
-                        ["gravel"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, entity.getWidth(), entity.getHeight(), partialTicks);
-                            };
-                        });
-                        []
-                    };
+                if (settings.gravelSkeletonHitboxes) {
+                    if (entity.getName().toLowerCase().includes("gravel")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 2), entity.getRenderZ(), 1, 2, 0, 9, 120, 102, false)
+                    }
                 }
-                // // Arachne
-                // if (settings.arachneHitbox) {
-                //     if (entity.getClassName() === "EntityArmorStand") {
-                //         ["Arachne Keeper", "Arachne's Brood", "Arachne"].forEach(rarity => {
-                //             if (entity.getName().toLowerCase().includes(rarity)) {
-                //                 drawBox(entity, 255, 0, 0, 5.0, 1, -2, partialTicks);
-                //             };
-                //         });
-                //         []
-                //     };
-                // }
-                // Arachne's Keeper 
-                // EntityCaveSpider
-                if (settings.arachneKeeperHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["keeper"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                            };
-                        });
-                        []
+                // Rain Slime
+                if (settings.rainSlimeHitboxes) {
+                    if (entity.getName().toLowerCase().includes("rain")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 2), entity.getRenderZ(), 3, 2, 0, 9, 120, 102, false)
+                    }
+                }
+                // Toxic Slime
+                if (settings.toxicSlimeHitboxes) {
+                    if (entity.getName().toLowerCase().includes("toxic")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 2), entity.getRenderZ(), 3, 2, 0, 25, 120, 102, false)
+                    }
+                }
+                // Spider Jockey
+                if (settings.spiderJockeyHitboxes) {
+                    if (entity.getName().toLowerCase().includes("jockey")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 2), entity.getRenderZ(), 1, 2, 0, 25, 120, 102, false)
+                    }
+                }
+                // Splitter Spider
+                if (settings.splitterSpiderHitboxes) {
+                    if (entity.getName().toLowerCase().includes("splitter")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
+                }
+                // Voracious Spider
+                if (settings.voraciousSpiderHitboxes) {
+                    if (entity.getName().toLowerCase().includes("voracious")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
+                    }
+                }
+                // Weaver Spider
+                if (settings.weaverSpiderHitboxes) {
+                    if (entity.getName().toLowerCase().includes("weaver")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY() - 1), entity.getRenderZ(), 1, 1, 0, 9, 120, 102, false)
                     }
                 }
 
-                // Arachne's Brood
                 // Silverfish
-                if (settings.silverfishHitbox) {
-                    if (entity.getClassName() === "EntitySilverfish") {
-                        ["silverfish"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, entity.getWidth(), entity.getHeight(), partialTicks);
-                            };
-                        });
-                        []
-                    };
-                }
-                // Slime
-                if (settings.slimeHitbox) {
-                    if (entity.getClassName() === "EntitySlime") {
-                        ["slime"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                // drawbow that uses the entities height and width to draw the box
-                                drawBox(entity, 255, 0, 0, 5.0, entity.getWidth(), entity.getHeight(), partialTicks);
-                            };
-                        });
-                        []
+                if (settings.silverfishHitboxes) {
+                    if (entity.getName().toLowerCase().includes("silverfish")) {
+                        RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY()), entity.getRenderZ(), 0.5, 0.5, 0, 9, 120, 102, false)
                     }
-                }
-                // Splitter
-                if (settings.splitterHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["splitter"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                            };
-                        });
-                        []
-                    };
-                }
-                // Dasher
-                if (settings.dasherHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["dasher"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                            };
-                        });
-                        []
-                    };
-                }
-                // Weaver - check
-                if (settings.weaverHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["weaver"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                            };
-                        });
-                        []
-                    };
-                }
-                // Voracious
-                if (settings.voraciousHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["voracious"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                            };
-                        });
-                        []
-                    };
-                }
-                // Jockey
-                if (settings.jockeyHitbox) {
-                    if (entity.getClassName() === "EntityArmorStand") {
-                        ["jockey"].forEach(rarity => {
-                            if (entity.getName().toLowerCase().includes(rarity)) {
-                                drawBox(entity, 255, 0, 0, 5.0, 1, -1, partialTicks);
-                            };
-                        });
-                        []
-                    };
                 }
             })
         }
-
     }
-});
+})

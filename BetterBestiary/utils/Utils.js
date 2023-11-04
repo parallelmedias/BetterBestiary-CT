@@ -91,6 +91,35 @@ export const data = new PogObject("BetterBestiary", {
     flames: 0
 }, "data/data.json")
 
+export const dragonEggLocations = {
+    "1": [-94, 201, -30],
+    "2": [-91, 221, -53],
+    "3": [-64, 206, -63],
+    "4": [-15, 236, -92],
+    "5": [-10, 162, 109],
+    "6": [1, 170, 0],
+    "7": [1, 183, 25],
+    "8": [49, 202, -162],
+    "9": [56, 214, -25],
+    "10": [61, 204, 181],
+    "11": [77, 160, 162],
+    "12": [91, 187, 131],
+    "13": [128, 187, 58],
+    "14": [150, 196, 190]
+};
+
+export const keeperWaypoints = {
+    "Keeper 1": [-270, 61, -160],
+    "Keeper 2": [-270, 47, -167],
+    "Keeper 3": [-293, 47, -168],
+    "Keeper 4": [-292, 47, -184],
+    "Keeper 5": [-263, 49, -192],
+    "Keeper 6": [-283, 47, -196],
+    "Keeper 7": [-312, 43, -233],
+    "Keeper 8": [-209, 44, -260], 
+    "Keeper 9": [-231, 57, -308],
+};
+
 export const chat = (msg) => ChatLib.chat(msg)
 export const chatid = (msg, id) => new Message(msg).setChatLineId(id).chat()
 export const hover = (msg, value) => new TextComponent(msg).setHoverValue(value).chat()
@@ -147,82 +176,6 @@ export function checkForEntity(entity) {
 export function rotatePlayer(yaw, pitch) {
     Player.getPlayer().field_70177_z = yaw
     Player.getPlayer().field_70125_A = pitch
-}
-
-export function isPlayerAt (location) 
-{
-    return TabList.getNames().some((l) => 
-        {
-            return l.removeFormatting().toLowerCase().includes(location.toLowerCase());
-        }
-    )
-}  
-
-// Draw Box for Hitboxes
-export const drawBox = (entity, red, green, blue, lineWidth, width, height, partialTicks) => {
-
-    if (width === null) {
-        width = entity.getWidth()
-    }
-    if (height === null) {
-        height = entity.getHeight()
-    }
-
-    GL11.glBlendFunc(770, 771); // Q: What does this do? A: It makes the lines transparent
-    GL11.glEnable(GL11.GL_BLEND);
-    GL11.glLineWidth(lineWidth);
-    GL11.glDisable(GL11.GL_TEXTURE_2D);
-    GlStateManager.func_179094_E();
-
-    let positions = [
-        [0.5, 0.0, 0.5],
-        [0.5, 1.0, 0.5],
-        [-0.5, 0.0, -0.5],
-        [-0.5, 1.0, -0.5],
-        [0.5, 0.0, -0.5],
-        [0.5, 1.0, -0.5],
-        [-0.5, 0.0, 0.5],
-        [-0.5, 1.0, 0.5],
-        [0.5, 1.0, -0.5],
-        [0.5, 1.0, 0.5],
-        [-0.5, 1.0, 0.5],
-        [0.5, 1.0, 0.5],
-        [-0.5, 1.0, -0.5],
-        [0.5, 1.0, -0.5],
-        [-0.5, 1.0, -0.5],
-        [-0.5, 1.0, 0.5],
-        [0.5, 0.0, -0.5],
-        [0.5, 0.0, 0.5],
-        [-0.5, 0.0, 0.5],
-        [0.5, 0.0, 0.5],
-        [-0.5, 0.0, -0.5],
-        [0.5, 0.0, -0.5],
-        [-0.5, 0.0, -0.5],
-        [-0.5, 0.0, 0.5]
-    ]
-
-    let counter = 0;
-
-    Tessellator.begin(3).colorize(red, green, blue);
-    positions.forEach(pos => {
-        Tessellator.pos(
-            entity.getX() + (entity.getX() - entity.getLastX()) * partialTicks + pos[0] * width,
-            entity.getY() + (entity.getY() - entity.getLastY()) * partialTicks + pos[1] * height,
-            entity.getZ() + (entity.getZ() - entity.getLastZ()) * partialTicks + pos[2] * width
-        ).tex(0, 0);
-
-        counter++;
-        if (counter % 2 === 0) {
-            Tessellator.draw();
-            if (counter !== 24) {
-                Tessellator.begin(3).colorize(red, green, blue);
-            }
-        }
-    });
-
-    GlStateManager.func_179121_F();
-    GL11.glEnable(GL11.GL_TEXTURE_2D);
-    GL11.glDisable(GL11.GL_BLEND);
 }
 
 export const getJsonDataFromFile = (fileName) => JSON.parse(FileLib.read("BetterBestiary", fileName)) ?? {}
