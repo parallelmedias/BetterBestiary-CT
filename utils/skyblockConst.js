@@ -27,3 +27,26 @@ export const keeperWaypoints = {
     "Keeper 8": [-209, 44, -260], 
     "Keeper 9": [-231, 57, -308],
 };
+
+export const emojis = {	
+	"hi|hello|wave":"ヾ(＾∇＾)",
+	"bye|cya":"(^-^)/",
+	"fp|sigh|ugh|facepalm":"( ¬_ლ)",
+	"shrug":"¯\\_(ツ)_/¯",
+	"nice|yay|+1":"(b＾▽＾)b",
+	"sad|cry|sob":"|(╥_╥)\\",
+	"huh|hmm|confused":"Σ(-᷅_-᷄๑)?",
+	"mad|angry|grr":"p(╬ಠ益ಠ)/",
+	"cool|rad|shades":"(▀̿Ĺ̯▀̿ ̿)",
+	"bruh":"╭( ๐ _๐)╮",
+	"lenny":"( ͡° ͜ʖ ͡°)",
+	"blush|uwu":"≧◡≦",
+	"amogus|amongus|sus":"ඞ",
+	"yep|check":"✔",
+	"type|writing":"✎...",
+	"spell|magic":"('-')⊃━☆ﾟ.*･｡ﾟ",
+	"party":"ヽ(^◇^*)/",
+	"blank|empty":"ࠀ",
+	"blank2|empty2":"⛬",
+	"ez":"èƶ"
+};

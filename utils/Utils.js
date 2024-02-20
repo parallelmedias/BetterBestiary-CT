@@ -152,10 +152,6 @@ export const short_number = (num) => {
 export const drawEspBox = (entity, boxW, boxH, r, b, g, a, phase) => RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY()), entity.getRenderZ(), boxW, boxH, r, b, g, a, phase)
 export const isEntity = (entity, name) => entity.getName().toLowerCase().includes(name)
 
-// mc classes
-export const EntityArmorStand = Java.type("net.minecraft.entity.item.EntityArmorStand")
-export const EntityPlayer = Java.type("net.minecraft.entity.player.EntityPlayer")
-
 // Used for Farming Angle
 export function rotatePlayer(yaw, pitch) {
     Player.getPlayer().field_70177_z = yaw
