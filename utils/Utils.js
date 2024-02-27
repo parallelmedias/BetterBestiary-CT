@@ -8,6 +8,13 @@ export const data = new PogObject("BetterBestiary", {
     firstTime: true,
     x: 0,
     y: 0,
+    broodx: 0,
+    broody: 0,
+    bestiaryx: 0,
+    bestiaryy: 0
+}, "data/data.json")
+
+export const lootData = new PogObject("BetterBestiary", {
     // Personal Island
     bat_talismans: 0,
     bone_dyes: 0,
@@ -89,7 +96,7 @@ export const data = new PogObject("BetterBestiary", {
     mutated_blaze_ashes: 0,
     millenia_old_blaze_ashes: 0,
     flames: 0
-}, "data/data.json")
+}, "data/loot.json")
 
 // Used for Block List 
 export const stripFormatting = (string) => {
@@ -123,12 +130,14 @@ export const getTime = (oldDate) => {
 
     return `${hours}:${mins}:${seconds}`
 }
+
 export const isBetween = (number, [min, max]) => (number-min) * (number-max) <= 0
 export const getSeconds = (timeStamp, timeStamp2) => !timeStamp || !timeStamp2 ? "0s" : `${((timeStamp-timeStamp2)/1000).toFixed(2)}s`
 
 // Used for Drop Tracker
 export let rareDropGui = new Gui()
 export let broodmotherGui = new Gui()
+export let trackedBestiaryGui = new Gui()
 
 register("dragged", (dx, dy, x, y) => {
     if (!rareDropGui.isOpen()) return
@@ -144,6 +153,13 @@ register("dragged", (dx, dy, x, y) => {
     data.save()
 });
 
+register("dragged", (dx, dy, x, y) => {
+    if (!broodmotherGui.isOpen()) return
+    data.bestiaryx = x
+    data.bestiaryy = y
+    data.save()
+});
+
 export const short_number = (num) => {
     if(num == undefined) return;
     return num.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -152,7 +168,7 @@ export const short_number = (num) => {
 export const drawEspBox = (entity, boxW, boxH, r, b, g, a, phase) => RenderLibV2.drawEspBox(entity.getRenderX(), Math.round(entity.getRenderY()), entity.getRenderZ(), boxW, boxH, r, b, g, a, phase)
 export const isEntity = (entity, name) => entity.getName().toLowerCase().includes(name)
 
-// Used for Farming Angle
+// Used for Farming Angle - probably not allowed
 export function rotatePlayer(yaw, pitch) {
     Player.getPlayer().field_70177_z = yaw
     Player.getPlayer().field_70125_A = pitch

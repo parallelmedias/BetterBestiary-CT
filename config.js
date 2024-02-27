@@ -83,12 +83,13 @@ class Settings {
     })
     bridgeBotFormatting = false;
 
-    @SwitchProperty({
-        name: "Skyblock Level Notifications",
-        description: "Sends a message in chat when you level up in Skyblock",
-        category: "Misc"
-    })
-    levelAlerts = false;
+    // Do I even have this anymore lol
+    // @SwitchProperty({
+    //     name: "Skyblock Level Notifications",
+    //     description: "Sends a message in chat when you level up in Skyblock",
+    //     category: "Misc"
+    // })
+    // levelAlerts = false;
 
 
     // Private Island

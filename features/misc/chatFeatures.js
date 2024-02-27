@@ -2,15 +2,19 @@ import settings from "../../config";
 
 // Remove Boss Messages
 register("chat", (e) => {
-    var formattedMessage = ChatLib.getChatMessage(e, true);
+    // in theory this should work, test
+    // var formattedMessage = ChatLib.getChatMessage(e, true);
     { cancel(e) }
-}).setCriteria("[BOSS] ${*}")
+}).setCriteria("[BOSS] ${*}");
 
-// Precursor Eyes Chat
+// Precursor Eyes Chat - try with using setCriteria
+// register("chat", (e) => {
+//     var formattedMessage = ChatLib.getChatMessage(e, true);
+//     if (formattedMessage.includes("Eye Beam")) { cancel(e) }
+// })
 register("chat", (e) => {
-    var formattedMessage = ChatLib.getChatMessage(e, true);
-    if (formattedMessage.includes("Eye Beam")) { cancel(e) }
-})
+    { cancel(e) }
+}).setCriteria("Eye Beam").setContains();
 
 // Horseman Chat
 // TODO: if player Horseman not maxed, operate
@@ -67,4 +71,4 @@ register ("chat", (level) => {
     if (settings.levelAlerts === true) {
         ChatLib.say("Skyblock level up! I reached Skyblock Level " + level + "!");
     }
-}).setCriteria("                             Level {*} ➡ [{level}]");
+}).setCriteria("Level {*} ➡ [{level}]").setContains();
